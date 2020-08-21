@@ -1,0 +1,19 @@
+{
+  "name": "dekstopapptec",
+  "version": "1.0.0",
+  "description": "An application that helps review subjects seen in class.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"working\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephanGuingor/tecapp.git"
+  },
+  "author": "Stephan Guingor Falcon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StephanGuingor/tecapp/issues"
+  },
+  "homepage": "https://github.com/StephanGuingor/tecapp#readme"
+}
