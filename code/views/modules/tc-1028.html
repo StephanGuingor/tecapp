@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
+    <title>Career</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../fonts/fonts.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/generic-module.css">
+    <link rel="stylesheet" href="../../css/modules/tc-1028.css">
+
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <link rel="stylesheet" href="../../vendor/styles/monokai-sublime.css">
+    <script src="../../vendor/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> <!-- Could remove -->
+</head>
+
+<body>
+    <div class="body-f">
+        <div class="container-back d-flex">
+            <div class="back-button" onclick="onBack()">
+                <svg class="back-svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="299.021px" height="299.021px"
+                    viewBox="0 0 299.021 299.021" style="enable-background:new 0 0 299.021 299.021;"
+                    xml:space="preserve">
+                    <g>
+                        <g>
+                            <path d="M292.866,254.432c-2.288,0-4.443-1.285-5.5-3.399c-0.354-0.684-28.541-52.949-146.169-54.727v51.977
+        c0,2.342-1.333,4.48-3.432,5.513c-2.096,1.033-4.594,0.793-6.461-0.63L2.417,154.392C0.898,153.227,0,151.425,0,149.516
+        c0-1.919,0.898-3.72,2.417-4.888l128.893-98.77c1.87-1.426,4.365-1.667,6.461-0.639c2.099,1.026,3.432,3.173,3.432,5.509v54.776
+        c3.111-0.198,7.164-0.37,11.947-0.37c43.861,0,145.871,13.952,145.871,143.136c0,2.858-1.964,5.344-4.75,5.993
+        C293.802,254.384,293.34,254.432,292.866,254.432z" />
+                        </g>
+                    </g>
+
+                </svg>
+            </div>
+            <div class="d-flex flex-column justify-content-center ml-2">
+                <h1 class="font-pinkd" style="color:white;font-size: 2rem;">Back</h1>
+            </div>
+
+        </div>
+
+
+        <!-- Title -->
+        <div class="container d-flex justify-content-center mb-3 title-container">
+            <h1 class="font-pinkd">TC-1028 (Aka Python)</h1>
+            <img class="img-fluid icon" src="../../media/pythonlogo.jpg" alt="" srcset="" draggable="false">
+        </div>
+
+        <!-- Play Area -->
+        <div class="container challenge-container font-pinkd d-flex flex-row">
+            <h1 class="challenge-title pl-1" onmouseover="showAbout()" onmouseout="unshowAbout()">Challenge #1</h1>
+            <h1 class="challenge-title-alt pl-1">Hello World)</h1>
+        </div>
+        <div class="container main-container">
+            <div class="container description-container my-3 font-pinkd ">
+                <h1 class="description text-center"></h1>
+            </div>
+
+
+            <div class="container" id="code-handle">
+            </div>
+
+            <div class="container description-container my-3 font-pinkd ">
+                <h1 class="description text-center font-pinkd">(((</h1>
+            </div>
+
+            <!-- Solution Blocks -->
+            <div>
+                <h1 class="challenge-title pl-1 font-pinkd">Answer</h1>
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="order-blocks d-flex flex-row flex-wrap" id="oblocks">
+                    </div>
+                </div>
+            </div>
+            <div class="container description-container my-3 font-pinkd ">
+                <h1 class="description text-center font-pinkd">(((</h1>
+            </div>
+
+            <!-- Orginal Blocks -->
+            <div>
+                <h1 class="challenge-title pl-1 font-pinkd">Blocks</h1>
+                <div class="drag-blocks d-flex flex-row flex-wrap" id="dblocks">
+                </div>
+            </div>
+
+
+            <!-- MODAL -->
+            <div class="modalS">
+                <div class="border-down">
+                    <h1 class="modal-titleS font-pinkd p-3">About</h1>
+                </div>
+                <p class="modal-paragraphS font-pinkd px-2 pt-2">
+
+                </p>
+            </div>
+
+            <!-- External -->
+            <img class="star" src="../../media/silver_star.png" alt="" srcset="" draggable="false">
+
+            <div class="d-flex flex-row-reverse flex-wrap justify-content-between">
+                <div class=" btn btn-success next-button my-2" onclick="nextChallenge()">
+                    <div class="d-flex flex-column justify-content-center">
+                        <h1 class="font-pinkd next-title">
+                            Next Challenge!
+                        </h1>
+                    </div>
+                </div>
+
+                <div class=" btn btn-info prev-button my-2" onclick="prevChallenge()">
+                    <div class="d-flex flex-column justify-content-center">
+                        <h1 class="font-pinkd prev-title">
+                            Previous!
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- MODAL END AND OVERLAY -->
+        <div class="overlay">
+        </div>
+
+        <div class="pcontainer">
+            <div class="modalSW container">
+                <div class="border-down">
+                    <h1 class="modal-titleS font-pinkd p-3">Completed</h1>
+                </div>
+                <p class="modal-paragraphSW font-pinkd px-2 py-2">
+                    The End Mother Fucker
+                </p>
+                <div class="container d-flex flex-row justify-content-between">
+                    <button class="btn-primary btn p-2 bb" onclick="removeOverlay()">Close</button>
+                    <button class="btn-info btn p-2 bb" onclick="nextChallenge()">Next</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</body>
+
+
+<script>
+    if (typeof module === 'object') { window.module = module; module = undefined; }
+</script>
+
+<script src="../jquery.min.js"></script>
+<script>
+
+
+    // Save in local storage current challenge
+    var challenges = [
+        {
+            id: 1,
+            name: "Bye Bye World!",
+            description: "Everything good start with a greeting!",
+            code: `"""
+                *Challenge*
+
+                Standard Output of "Hello World!"
+"""`,
+            about: `First Challenge! Here we where introduced briefly to concepts like functions.
+                    Which are separate blocks of code that help reusability.
+            `,
+            solution: ["print(", "\"Hello", "World!\"", ")"],
+            solutionNum: 4,
+            hints: [0, 1, 0, 0],
+            type: "piecewise",
+            pieces: ["print(", "World!\"", ")"]
+        },
+        {
+            id: 2,
+            name: "Loops And More Loops",
+            description: "Eat more dick",
+            code: `"""
+                *Challenge*
+
+                Complete the missing code to sum all values.
+"""
+            values = [1,2,3,4,5]
+            total = 0;
+            # missing code
+                total += i;
+
+`
+            ,
+            about: "In this class we learned python!",
+            solution: ["for", "i", "in", "range(", "10)", ":"],
+            solutionNum: 6,
+            hints: [1, 0, 0, 0, 0, 0],
+            type: "piecewise",
+            pieces: ["i", "in", "range(", "10)", ":"]
+
+        }
+    ]
+
+    // Overlays
+
+    function removeOverlay() {
+
+
+        $('.overlay').animate({
+            opacity: "0%"
+        }, 200, () => {
+            $('.overlay')[0].style.pointerEvents = "none";
+        })
+        $('.pcontainer').animate({
+            opacity: 0
+        }, 200, () => {
+            $('.pcontainer')[0].style.pointerEvents = "none";
+        })
+
+
+
+
+
+
+    }
+
+    function nextChallenge() {
+        // Remove Current Challenge and Add Next 
+
+        if (challenges.length > challenge.id) {
+            store.set('tc-1028', { number: challenge.id + 1 })
+            removeOverlay();
+            setChallenge();
+        }
+
+    }
+
+
+    function prevChallenge() {
+        if (challenge.id > 1) {
+            store.set('tc-1028', { number: challenge.id - 1 })
+            removeOverlay();
+            setChallenge();
+        }
+    }
+
+    function showOverlay() {
+
+        $('.overlay').animate({
+            opacity: "60%"
+        }, 300, () => {
+            $('.overlay')[0].style.pointerEvents = "auto";
+        })
+
+        $('.pcontainer').animate({
+            opacity: "100%"
+        }, 200, () => {
+            $('.pcontainer')[0].style.pointerEvents = "auto";
+        })
+
+        // Sets Challenge to Completed!
+        store.set(`ch${challenge.id}`, 1)
+
+    }
+
+    $(".pcontainer").on("click", function (e) {
+
+        if ($(e.target).hasClass('pcontainer')) {
+            removeOverlay();
+        }
+    });
+    // Show About
+
+    function showAbout() {
+        $('.modalS')[0].style.display = "block";
+    }
+
+    function unshowAbout() {
+        $('.modalS')[0].style.display = "none";
+    }
+
+
+    // Drag Functions
+    // main container
+    let sourceContainerId = "";
+
+    function allowDrop(el, ev) {
+        ev.preventDefault();
+        if (el.id !== sourceContainerId && el.children.length === 0) {
+            el.classList.add('hover');
+        }
+    }
+
+    function dragLeave(el, ev) {
+        ev.preventDefault();
+        el.classList.remove('hover');
+    }
+
+    function drag(el, ev) {
+        el.classList.add("dragging");
+
+        ev.dataTransfer.setData("data", ev.target.id);
+        sourceContainerId = el.parentElement.id;
+    }
+
+    function dragEnd(el, event) {
+        el.classList.remove("dragging");
+    }
+
+
+    function drop(el, ev) {
+
+        if (el.id !== sourceContainerId && el.children.length === 0) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("data");
+            const item = document.getElementById(data);
+            ev.target.appendChild(item);
+            el.classList.remove("hover");
+        }
+
+        else if (el.children.length === 1) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            var data = ev.dataTransfer.getData("data");
+            const item = document.getElementById(data);
+            const prevParent = document.getElementById(sourceContainerId);
+            prevParent.appendChild(el.children[0]);
+            ev.currentTarget.appendChild(item);
+
+
+
+        }
+
+        // Check for win
+        const blocks = $('.block');
+        let blockArr = []
+        for (var i of blocks) {
+            if (i.children[0] !== undefined) {
+                blockArr.push(i.innerText.replace("\n", ""))
+            }
+        }
+
+        let ch = challenges.length;
+        if (JSON.stringify(blockArr) === JSON.stringify(challenge.solution)) {
+
+            $(".star").animate({
+                width: "50px"
+            }, 200, function () {
+                console.log(challenge.id);
+                console.log(ch);
+                if (challenge.id < ch){
+                $(".next-button")[0].style.display = "flex";
+                }else{
+                    $(".next-button")[0].style.display = "none";
+                }
+                showOverlay();
+            });
+
+
+        }
+
+
+
+
+    }
+
+    // End of Draggs
+
+    const Store = require("../../persistance/StoreModel.js")
+    // Creating Store for the Challenge Settings
+    // First instantiate the class
+    const store = new Store({
+        // We'll call our data file 'user-preferences'
+        configName: 'user-preferences',
+        defaults: {
+            // Defaults to challenge number 1
+            "tc-1028": { number: 0 }
+        }
+    });
+
+
+
+    const { ipcRenderer } = require("electron");
+    // Back Handle
+    const onBack = () => {
+        // Could Add Transition
+        $('.body-f').animate({
+            opacity: 0
+        }, 100, function () {
+            console.log(ipcRenderer.sendSync('onTec', 'click')) // prints "pong"
+        });
+
+    }
+
+
+
+
+
+    // Global Challenge
+    let challenge;
+
+
+    function setChallenge() {
+        // Getting main container (and others)
+        const dragBlocks = $('#dblocks')[0];
+        const orderBlocks = $('#oblocks')[0];
+        const chTitle = $('.challenge-title')[0];
+        const chTitleAlt = $('.challenge-title-alt')[0];
+        const desc = $('.description')[0];
+        const { number: id } = store.get('tc-1028');
+        challenge = challenges[id - 1];
+
+
+        // Setting Header Info
+        chTitleAlt.innerHTML = challenge.name;
+        chTitle.innerHTML = `Challenge #${id}`;
+        desc.innerHTML = challenge.description;
+
+  
+        // Chekc if its a completed level
+        let ch = challenges.length;
+        console.log(challenge.id);
+        if (store.get(`ch${challenge.id}`) !== undefined && store.get(`ch${challenge.id}`) === 1) {
+            $(".star")[0].style.width = "50px";
+
+            if(challenge.id < ch){
+                $(".next-button")[0].style.display = "flex";
+            }else{
+                    $(".next-button")[0].style.display = "none";
+                }
+    }
+
+
+
+        // Set the previous button
+        if(challenge.id > 1){
+            $('.prev-button')[0].style.display = "flex";
+        } else{
+            $('.prev-button')[0].style.display = "none";
+        }
+
+
+        //  Check for items
+        var counter = 0;
+        dragBlocks.innerHTML = "";
+        for (i of challenge.pieces) {
+            dragBlocks.innerHTML += `
+            <div class="empty-container mb-2" ondrop="drop(this,event)" ondragover="allowDrop(this,event)"
+                    ondragleave="dragLeave(this,event)" id="s${counter}">
+                   
+                    <div class="data d-flex flex-row justify-content-center font-neo" id="b${counter}"
+                        ondragstart="drag(this,event)" ondragend="dragEnd(this,event)" draggable="true">
+                        <div class="d-flex flex-column justify-content-center">
+                            <pre><code class="python nice-code max">${i}</code></pre>
+                        </div>
+                    
+                    </div>
+                </div>
+            `
+            counter++;
+        }
+
+        // Solution Blocks
+
+        orderBlocks.innerHTML = "";
+        for (let i = 0; i < challenge.solutionNum; i++) {
+            if (challenge.hints[i] === 1) {
+                orderBlocks.innerHTML += `
+            <div class="block hint-class mb-2" id="d${i}">
+                <div class="data d-flex flex-row justify-content-center font-neo" id="b${counter}">
+                        <div class="d-flex flex-column justify-content-center">
+                            <pre><code class="python nice-code max">${challenge.solution[i]}</code></pre>
+                        </div>
+                    
+                    </div>
+                </div>
+            `
+            } else {
+                orderBlocks.innerHTML += `
+            <div class="d-flex flex-row">
+            <h1 class="pre-num font-pinkd">${i + 1}</h1>
+            <div class="block" id="d${i}" ondrop="drop(this,event)" ondragover="allowDrop(this,event)"
+                    ondragleave="dragLeave(this,event)">
+                </div>
+            </div>
+            `
+            }
+        }
+
+        const codeWarmup = $('#code-handle')[0];
+
+        // Could be expanded
+        codeWarmup.innerHTML = `
+            <pre class="warmup"><code class="python cody">${challenge.code}</code></pre>
+        `
+        // Edit Modal
+        $('.modal-paragraphS')[0].innerHTML = challenge.about;
+
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    }
+
+
+
+    $(document).ready((e) => {
+
+        if (store.get('tc-1028') === undefined) {
+            store.set('tc-1028', { number: 1 });
+        }
+
+
+        // Setting Up Challenge
+        setChallenge();
+
+    })
+
+
+</script>
+<script>if (window.module) module = window.module;</script>
+
+</html>

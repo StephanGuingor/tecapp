@@ -1,11 +1,25 @@
 const { app, BrowserWindow, Menu } = require('electron')
 const url = require("url")
 const path = require("path")
-
+const Store = require("./persistance/StoreModel.js")
 
 // CONSTANTS PAGES
 const tecPage = "tec_page.html";
 const udemyPage = "udemy_page.html";
+const mainPage = "index.html";
+
+
+// Creating Store for the Settings
+// First instantiate the class
+const store = new Store({
+    // We'll call our data file 'user-preferences'
+    configName: 'user-preferences',
+    defaults: {
+      // 800x600 is the default size of our window
+      windowBounds: { width: 800, height: 600 }
+    }
+  });
+
 
 
 // Find Electron if debug mode is one
@@ -18,7 +32,12 @@ require("electron-reload")(__dirname,{
 let mainWindow;
 // Get computer ready
 app.on("ready", () => {
+    // Get Size
+    let { width, height } = store.get('windowBounds');
+
     mainWindow = new BrowserWindow({
+        width,
+        height,
         darkTheme:true,
         webPreferences: {
             worldSafeExecuteJavaScrip:true,
@@ -36,9 +55,20 @@ app.on("ready", () => {
     const mainMenu = Menu.buildFromTemplate(templateMenu);
     Menu.setApplicationMenu(mainMenu);
 
+    //  If main window is closed, quit the Application
     mainWindow.on('close',() => {
         app.quit();
     })
+
+      // The BrowserWindow class extends the node.js core EventEmitter class, so we use that API
+  // to listen to events on the BrowserWindow. The resize event is emitted when the window size changes.
+  mainWindow.on('resize', () => {
+    // The event doesn't pass us the window size, so we call the `getBounds` method which returns an object with
+    // the height, width, and x and y coordinates.
+    let { width, height } = mainWindow.getBounds();
+    // Now that we have them, save them using the `set` method.
+    store.set('windowBounds', { width, height });
+  });
 })
 
 // Creates Pop Up
@@ -91,6 +121,19 @@ const templateMenu = [
 // In main process.
 const { ipcMain } = require('electron')
 
+
+// When user click on tec button
+ipcMain.on('onBackMain', (event, arg) => {
+    console.log("jumped to main");
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname,`views/${mainPage}`),
+        protocol:"file",
+        slashes:true
+    }))
+  event.returnValue = 'mainPage'
+})
+
+
 // When user click on tec button
 ipcMain.on('onTec', (event, arg) => {
     console.log("jumped to tec page");
@@ -127,6 +170,7 @@ if (process.env.NODE_ENV !== "production"){
         submenu:[
             {
                 label: "Show/Hide Dev Tools",
+                accelerator:"Ctrl+Shift+I",
                 click(item,focusedWindow){
                     focusedWindow.toggleDevTools();
                 }

@@ -1,8 +1,6 @@
-
-
-body{
-    background: rgb(41, 40, 48);
+.body-f{
     animation: change 10s infinite;
+    min-height: 100vh;
 }
 
 @keyframes change{
@@ -15,6 +13,7 @@ body{
 
 
 body { 
+    background: rgb(41, 40, 48);
     animation: fadeInAnimation ease 2s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
@@ -53,3 +52,72 @@ fill: aliceblue;
 .back-svg:hover{
     fill: hsl(223, 41%, 97%);
 }
+
+.container-back{
+    margin: 5px;
+    padding-left: 2px;
+}
+
+
+.title-container h1{
+    font-size: 3rem;
+    color: white;
+    margin-right:5px;
+}
+
+
+.font-pinkd{
+    font-family: "pink_diary";
+}
+
+.card-extra{
+    border-top: 3px solid rgb(87, 61, 255);
+    transition: ease-in-out 0.3s;
+    width: 18rem;
+    height: 12rem;
+    max-width: 300px;
+    max-height: 200px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.card-extra:hover{
+    margin-top: -10px;
+    box-shadow: 0px 2px 2px black;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row-container{
+    display: flex;
+    justify-content: center;
+}
+
+#cards-container{
+    justify-content: center;
+}
+
+.icon{
+    width: 3.5rem;
+    height: auto;
+    object-fit:contain;
+    border-radius: 50%;
+}
+
+.search-class{
+    border-radius: 5px;
+    min-width: 150px;
+    transition: ease-in-out 0.1s;
+}
+
+
+.search-class:focus{
+    border: 2px solid hsl(176, 54%, 55%);
+}
+
+

@@ -10,3 +10,46 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'barikaregular';
+    src: url('barika-webfont.woff2') format('woff2'),
+         url('barika-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'neobulletin_boldregular';
+    src: url('neobulletin_bold-webfont.woff2') format('woff2'),
+         url('neobulletin_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'neobulletin_italicregular';
+    src: url('neobulletin_italic-webfont.woff2') format('woff2'),
+         url('neobulletin_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'neobulletin_tworegular';
+    src: url('neobulletin_two-webfont.woff2') format('woff2'),
+         url('neobulletin_two-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

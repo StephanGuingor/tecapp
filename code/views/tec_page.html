@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
     <link rel="stylesheet" href="../css/tec_page.css">
 
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
@@ -15,52 +15,150 @@
     <title> Career | Tec</title>
 
     <script>
-    if (typeof module === 'object') { window.module = module; module = undefined; }
+        if (typeof module === 'object') { window.module = module; module = undefined; }
     </script>
 
     <script src="./jquery.min.js"></script>
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="back-button" onclick="onBack()">
-            <svg class="back-svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="299.021px" height="299.021px"
-                viewBox="0 0 299.021 299.021" style="enable-background:new 0 0 299.021 299.021;" xml:space="preserve">
-                <g>
+    <div class="body-f">
+        <div class="container-back d-flex">
+            <div class="back-button" onclick="onBack()">
+                <svg class="back-svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="299.021px" height="299.021px"
+                    viewBox="0 0 299.021 299.021" style="enable-background:new 0 0 299.021 299.021;"
+                    xml:space="preserve">
                     <g>
-                        <path d="M292.866,254.432c-2.288,0-4.443-1.285-5.5-3.399c-0.354-0.684-28.541-52.949-146.169-54.727v51.977
+                        <g>
+                            <path d="M292.866,254.432c-2.288,0-4.443-1.285-5.5-3.399c-0.354-0.684-28.541-52.949-146.169-54.727v51.977
 			c0,2.342-1.333,4.48-3.432,5.513c-2.096,1.033-4.594,0.793-6.461-0.63L2.417,154.392C0.898,153.227,0,151.425,0,149.516
 			c0-1.919,0.898-3.72,2.417-4.888l128.893-98.77c1.87-1.426,4.365-1.667,6.461-0.639c2.099,1.026,3.432,3.173,3.432,5.509v54.776
 			c3.111-0.198,7.164-0.37,11.947-0.37c43.861,0,145.871,13.952,145.871,143.136c0,2.858-1.964,5.344-4.75,5.993
 			C293.802,254.384,293.34,254.432,292.866,254.432z" />
+                        </g>
                     </g>
-                </g>
 
-            </svg>
+                </svg>
+            </div>
+            <div class="d-flex flex-column justify-content-center ml-2">
+                <h1 class="font-pinkd" style="color:white;font-size: 2rem;">Back</h1>
+            </div>
+
         </div>
 
+        <div class="container d-flex justify-content-center mb-3 title-container">
+            <h1 class="font-pinkd">Clases</h1>
+            <img class="img-fluid icon" src="../media/teclogo2.jpg" alt="" srcset="">
+            <!-- Search form -->
+
+            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+              
+                <input class="form-control form-control-sm ml-3 w-75 search-class font-pinkd" type="text" placeholder="Search"
+                    aria-label="Search" onkeyup="filterData(this)">
+            </form>
+        </div>
+
+        <!-- Classes -->
+        <div class="container row-container">
+            <div class="container d-flex flex-row flex-wrap" id="cards-container">
+            </div>
+        </div>
     </div>
+
 
 </body>
 
 
 
 <script>
+
+    const filterData = (v) => {
+
+        var re = new RegExp(`${v.value}`);
+    
+        const cards = $('.card');
+        
+        for (let i of cards){
+            // Gets text
+            let html = i.children[0].children[0].innerHTML;
+            let html2 = i.children[1].children[0].innerHTML;
+            let match = re.exec(html,"i");
+            let match2 = re.exec(html2,"i");
+            
+            // could simplify
+            if ((match !== undefined && match !== null) || (match2 !== undefined && match2 !== null)){
+                i.style.display = "flex";
+            }else {
+                i.style.display = "none";
+            }
+        }
+    }
+
+    $(document).ready((e) => {
+        const classes = [
+            {
+                name: "TC-1028 Pensamiento computacional",
+                description: "Introduccion a programacion con Python",
+                link:"TC-1028"
+            },
+            {
+                name: "MA-1028 Modelacion Matematica",
+                description: "Modelaje de sitauciones reales",
+                link:"MA-1028"
+            },
+            {
+                name: "	TC-1033 Pensamiento computacional OOP",
+                description: "Introduccion a CPP y OOP",
+                link:"TC-1033"
+            },
+            {
+                name: "	TC-q Matematica Computacional",
+                description: "Matematica discreta aplicada a processamiento de imagenes",
+                link:"TC-q"
+            },
+        ]
+        const cards = $('#cards-container')[0];
+        for (let i of classes) {
+            cards.innerHTML += `
+
+            <div class="card card-extra">
+                    <div class="card-header">
+                        <h1 class="font-pinkd">${i.name}</h1>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text mb-2">${i.description}</p>
+                        <a href="./modules/${i.name.split(" ")[0].toLowerCase()}.html" class="btn btn-info align-self-center font-pinkd">Ir</a>
+                    </div>
+            </div>
+
+            `
+        }
+
+    })
+
+    const {ipcRenderer} = require('electron');
+
     // Handles (buttons)
 
     // Back Handle
     const onBack = () => {
         // Could Add Transition
-        $('body').animate({
+        $('.body-f').animate({
             opacity: 0
-        }, 200, function () {
-            history.back();
+        }, 100, function () {
+            console.log(ipcRenderer.sendSync('onBackMain', 'click')) // prints "pong"
         });
 
-
     }
+
+    $('input').on('change', e => {
+        console.log($(this).value)
+    })
+
+    $('form').on('submit', e => {
+        e.preventDefault();
+    })
 </script>
 
 <script>if (window.module) module = window.module;</script>

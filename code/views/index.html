@@ -14,18 +14,19 @@
 </head>
 
 <body>
-
-  <!-- Main Container App -->
-  <div class="container app d-flex flex-column justify-content-center">
-    <!-- Title -->
-    <div class="container m-3 d-flex flex-row justify-content-center">
-      <h1 class=main-title>Tec App</h1>
-      <img src="../media/logo.png" alt="<logo>" class="img-fluid image-icon">
-    </div>
-    <!-- Options -->
-    <div class="container m-3 d-flex flex-column align-items-center">
-      <button class="btn-primary option-element" onclick="onTec()">Tec <code>&gtrless; |section|</code></button>
-      <button class="btn-primary option-element" onclick="onUdemy()">Udemy <code>&gtrless; |section|</code></button>
+  <div class="body-f">
+    <!-- Main Container App -->
+    <div class="container app d-flex flex-column justify-content-center">
+      <!-- Title -->
+      <div class="container m-3 d-flex flex-row justify-content-center">
+        <h1 class=main-title>Tec App</h1>
+        <img src="../media/logo.png" alt="<logo>" class="img-fluid image-icon">
+      </div>
+      <!-- Options -->
+      <div class="container m-3 d-flex flex-column align-items-center">
+        <button class="btn-primary option-element" onclick="onTec()">Tec <code>&gtrless; |section|</code></button>
+        <button class="btn-primary option-element" onclick="onUdemy()">Udemy <code>&gtrless; |section|</code></button>
+      </div>
     </div>
   </div>
 </body>
@@ -33,31 +34,41 @@
 
 <script>
   if (typeof module === 'object') { window.module = module; module = undefined; }
-  </script>
+</script>
 
 <script src="./jquery.min.js"></script>
 <script>
 
-  
+
   // Handles (buttons)
 
   const { ipcRenderer } = require('electron')
 
-  $("body").ready(() => {
-    $('body').fadeIn(10000);
-  })
+  // $("body").ready(() => {
+  //   $('body').fadeIn(10000);
+  // })
 
   // Tec Handle
   const onTec = () => {
     // In renderer process (web page).
-    console.log(ipcRenderer.sendSync('onTec', 'click')) // prints "pong"
+    $('.body-f').animate({
+      opacity: 0
+    }, 100, function () {
+      console.log(ipcRenderer.sendSync('onTec', 'click')) // prints "pong"
+    });
+
 
   }
 
   // Udemy Handle
   const onUdemy = () => {
     // In renderer process (web page).
-    console.log(ipcRenderer.sendSync('onUdemy', 'click')) // prints "pong"
+    $('.body-f').animate({
+      opacity: 0
+    }, 100, function () {
+      console.log(ipcRenderer.sendSync('onUdemy', 'click')) // prints "pong"
+    });
+
   }
 
 </script>

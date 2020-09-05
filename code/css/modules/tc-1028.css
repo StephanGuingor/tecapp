@@ -1,0 +1,278 @@
+.title-container h1{
+    font-size: 3rem;
+    color: white;
+    margin-right:5px;
+}
+
+.icon{
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit:contain;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+
+.main-container{
+    border: 2px solid hsl(248, 9%, 30%);
+    min-height: 80vh;
+    /* max-height: 800px; */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
+
+.challenge-container{
+
+}
+
+.challenge-title,.challenge-title-alt{
+    color: white;
+    background: rgb(87, 87, 195);
+    width: fit-content;
+    border-radius: 2px 2px 0px 0px;
+    padding: 2px;
+}
+
+.challenge-title-alt{
+    background: rgb(216, 58, 92);
+}
+
+.description{
+    color: rgb(230, 227, 227);
+
+}
+
+.block,.data,.empty-container,.nice-code{
+    min-width: 8rem;
+    width: fit-content;
+    height: 3rem;
+    border: 2px solid rgb(255, 255, 255);
+    background: rgb(39, 29, 56);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: ease-in-out 0.1s;
+}
+
+.empty-container{
+    background:lightslategray;
+    border-color: aliceblue;
+}
+
+.data{
+    color: aqua;
+    border: none;
+    background: lightblue;
+ display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    font-size:1.5rem;
+
+    
+}
+
+.data:not(:disabled):not(.disabled)[draggable=true] {
+    cursor: pointer;
+}
+
+.dragging{
+    opacity: 50%;
+}
+
+.order-blocks,.drag-blocks{
+    margin-top:5px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:20px;
+    padding-bottom: 5px;
+    justify-content: space-around;
+    background:rgb(27, 28, 32);
+    border-top: 2px solid blue;
+}
+
+.hover{
+    opacity: 50%;
+}
+
+[draggable="true"] {
+    /*
+   To prevent user selecting inside the drag source
+  */
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.nice-code{
+    overflow: none;
+    padding:0px !important;
+    border:none;
+    border-radius: 5px !important;
+    height:1.8rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-self: center !important;
+
+}
+
+.font-neo{
+    font-family: "neobulletin_italicregular";
+}
+
+.hint-class{
+    border-color: rgb(58, 233, 97);
+}
+
+
+#code-handle{
+    min-width: 70%;
+    min-height: 40%;
+}
+
+.warmup{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid gray;
+
+}
+.cody{
+    height: 100%;
+}
+
+.max{
+    height: 2.8rem !important;
+    padding-top: 10px !important;
+}
+
+.pre-num{
+    color:white;
+    margin-right: 5px;
+    width: 1rem;
+    padding-left: 0.25rem;
+    height: fit-content;
+    /* background:rgb(86, 212, 183); */
+    border-radius: 2px;
+}
+
+.challenge-title:hover{
+    background: rgb(103, 103, 223);
+}
+
+
+.modalS{
+    display: none;
+    position: absolute;
+    background: rgb(25, 29, 54);
+    height: 20vh;
+    border-top: 2px solid rgb(206, 45, 98);
+    box-shadow: 1px 2px 2px black;
+    top: 0%;
+    left: 10%;
+    width: 50%;
+}
+
+.modal-titleS{
+    color: wheat;
+}
+
+.border-down{
+    width: 100%;
+    border-bottom: 1px solid whitesmoke;
+
+}
+
+.star{
+    position: absolute;
+    width: 0px;
+    top: 0%;
+    right: 0%;
+    transition: ease-in-out 0.2s;
+}
+
+
+.overlay,.pcontainer{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background:black;
+    opacity: 0%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* transition: ease-in-out 0.2s; */
+
+    pointer-events: none;
+}
+
+.pcontainer{
+    opacity: 0%;
+    background:none;
+  
+}
+
+.modalSW{
+    opacity: 100%;
+    z-index: 2;
+    background: rgb(97, 105, 121);
+    padding-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 1px 2px black;
+    max-width: 500px;
+    
+}
+
+.modal-paragraphSW{
+    color: aliceblue;
+}
+
+.bb{
+    border-radius: 5px;
+    min-width: 5rem;
+}
+
+
+
+
+.next-svg{
+    transform: rotate(180deg);
+    fill: antiquewhite;
+    height: 3rem;
+ 
+}
+
+.next-button,.prev-button{
+    /* max-width: 40%; */
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    /* align-self: flex-end; */
+    transition: ease-in-out 0.1s;
+    display: none;
+} 
+
+.prev-button{
+    justify-content: center;
+}
+
+.prev-button:hover{
+    border: 2px solid rgb(168, 191, 197);
+}
+
+.next-button:hover{
+    border: 2px solid rgb(168, 197, 168);
+}
+
+.next-title,.prev-title{
+    font-size: 2em;
+    color: aliceblue;
+}
